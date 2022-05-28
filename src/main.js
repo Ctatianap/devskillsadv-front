@@ -9,13 +9,4 @@ const app = createApp(App)
 
 app.use(ElementPlus)
 app.mount('#app')
-
-
-// axios.interceptors.request.use(config=>{
-//     console.log(config)
-      
-//     config.headers.Authorization=window.sessionStorage.getItem('token')
-
-//     return config
-//   })
   

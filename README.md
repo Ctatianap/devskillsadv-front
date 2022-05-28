@@ -1,7 +1,17 @@
-# Vue 3 + Vite
+## Comportamiento esperado:
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+- Los datos del formulario deben ser enviados a la API, la tabla de la derecha debe recibir los datos de la misma al cargarse el sitio
+- Luego de cada insercion exitosa, se debe ingresar los datos a la tabla, sin necesidad de utilizar el endpoint GET
+- El boton reset debe limpiar los campos del formulario
+- El boton save debe enviar los datos a la API
+- El número de seguro social (ssn), es único, y no puede repetirse en la lista.
+- En caso de un intento de inserción erroneo, se debe informar dicho error
+- Al pasar 2 minutos de inactividad, se debe refrescar la tabla automáticamente
 
-## Recommended IDE Setup
+Para ejecutar el Front end:
+-clonar este repositorio
+-instalar dependencias (npm i)
+-npm run dev
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+Para ejecutar back end:
+-Dirigirse a https://github.com/newcombin/devskillsadv clonar repositorio y seguir instrucciones
