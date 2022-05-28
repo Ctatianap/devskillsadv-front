@@ -21,6 +21,7 @@ import ShowData from "./components/ShowData.vue";
 import Footer from "./components/Footer.vue";
 import { saveToken, getToken } from "./helpers/token";
 import axios from "axios";
+import { AUTH_URL, MEMBERS_URL } from "./constants/api";
 
 export default {
   name: "App",
@@ -58,14 +59,10 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.post(
-          "http://localhost:8081/auth",
-          this.userLogin
-        );
+        const response = await axios.post(AUTH_URL, this.userLogin);
         saveToken(response?.data?.token);
         this.getUsers();
       } catch (error) {
-        console.log("Error de inicio de sesion");
         console.error(error);
       }
     },
@@ -75,7 +72,6 @@ export default {
       clearInterval(this.inactivityCounterId);
       this.inactivityCounterId = setInterval(() => {
         inactivitySeconds++;
-        console.log(inactivitySeconds);
         if (inactivitySeconds % totalInactivitySeconds === 0) {
           this.getUsers();
         }
@@ -84,7 +80,7 @@ export default {
     async getUsers() {
       try {
         this.loading++;
-        const response = await axios.get("http://localhost:8081/api/members", {
+        const response = await axios.get(MEMBERS_URL, {
           headers: { authorization: getToken() },
         });
         this.users = response?.data || [];

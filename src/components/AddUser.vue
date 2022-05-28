@@ -32,6 +32,7 @@
 import { ElInput, ElButton } from "element-plus";
 import { getToken } from "../helpers/token";
 import axios from "axios";
+import { MEMBERS_URL } from "../constants/api";
 
 export default {
   name: "AddUser",
@@ -109,23 +110,16 @@ export default {
   methods: {
     async sendUsers() {
       try {
-        this.postData = {
-          firstName: this.ruleForm.firstName,
-          lastName: this.ruleForm.lastName,
-          address: this.ruleForm.address,
-          ssn: this.ruleForm.ssn,
-        };
-        await axios.post("http://localhost:8081/api/members", this.postData, {
+        await axios.post(MEMBERS_URL, this.ruleForm, {
           headers: {
             authorization: getToken(),
           },
         });
-        this.$emit("onSaveUser", this.postData);
+        this.$emit("onSaveUser", { ...this.ruleForm });
         this.resetForm();
       } catch (error) {
         console.error(error);
       } finally {
-        loading--;
       }
     },
     submitForm() {
