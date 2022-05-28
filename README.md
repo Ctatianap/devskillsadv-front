@@ -8,10 +8,12 @@
 - En caso de un intento de inserción erroneo, se debe informar dicho error
 - Al pasar 2 minutos de inactividad, se debe refrescar la tabla automáticamente
 
-Para ejecutar el Front end:
--clonar este repositorio
--instalar dependencias (npm i)
--npm run dev
+## Para ejecutar el Front end:
 
-Para ejecutar back end:
--Dirigirse a https://github.com/newcombin/devskillsadv clonar repositorio y seguir instrucciones
+- clonar este repositorio
+- instalar dependencias (npm i)
+- npm run dev
+
+## Para ejecutar back end:
+
+- Dirigirse a https://github.com/newcombin/devskillsadv clonar repositorio y seguir instrucciones
